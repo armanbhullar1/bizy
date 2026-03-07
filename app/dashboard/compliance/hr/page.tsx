@@ -339,7 +339,7 @@ export default function HRPage() {
             <div className="text-sm text-blue-800">
               <p className="font-medium mb-1">Employer Responsibilities in Canada</p>
               <p className="text-blue-700">
-                As a Canadian employer, you're legally required to complete these tasks for each
+                As a Canadian employer, you&apos;re legally required to complete these tasks for each
                 employee. Non-compliance can result in CRA penalties.
               </p>
             </div>

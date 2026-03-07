@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { useUser } from '@auth0/nextjs-auth0/client'
 import { OnboardingProgress } from '@/components/onboarding/OnboardingProgress'
 import { StepOne } from '@/components/onboarding/StepOne'
@@ -108,7 +109,7 @@ export default function OnboardingPage() {
       {/* Top navigation */}
       <div className="sticky top-0 bg-gray-50/80 backdrop-blur-sm border-b border-gray-200 z-10">
         <div className="max-w-2xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a 
+          <Link 
             href="/"
             className="text-gray-600 hover:text-gray-900 flex items-center gap-2 text-sm"
           >
@@ -116,7 +117,7 @@ export default function OnboardingPage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
             Back to Home
-          </a>
+          </Link>
           <span className="text-xl font-heading font-bold text-brand-primary">Bizy</span>
           <div className="w-20" /> {/* Spacer for centering */}
         </div>

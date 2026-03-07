@@ -1,16 +1,12 @@
 "use client";
 
-import { signOut } from "firebase/auth";
-import { auth } from "@/lib/firebase";
 import { Button } from "@/components/ui/button";
 
+// Using Auth0 for authentication
 export default function SignOut() {
-  const handleSignOut = async () => {
-    try {
-      await signOut(auth);
-    } catch (error) {
-      console.error("Sign-out error:", error);
-    }
+  const handleSignOut = () => {
+    // Redirect to Auth0 logout
+    window.location.href = '/api/auth/logout'
   };
 
   return (

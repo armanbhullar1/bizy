@@ -232,6 +232,67 @@ export interface Grant {
   description: string
 }
 
+// ─── Website Builder / Storefront ────────────────────────────────────────────
+
+export type DesignStyle = 'modern' | 'classic' | 'minimal' | 'bold' | 'friendly'
+
+export interface CustomImage {
+  id: string
+  url: string
+  x: number  // position as percentage (0-100)
+  y: number  // position in pixels from top
+  width: number  // width in pixels
+  zIndex: number // layer order
+}
+
+export interface WebsiteConfig {
+  // Basic Info
+  businessName: string
+  tagline: string
+  description: string
+  
+  // Design
+  designStyle: DesignStyle
+  primaryColor: string
+  secondaryColor: string
+  accentColor: string
+  fontStyle: 'sans' | 'serif' | 'modern'
+  
+  // Content
+  heroImage?: string
+  logoUrl?: string
+  services: string[]
+  contactEmail: string
+  contactPhone?: string
+  address?: string
+  socialLinks?: {
+    facebook?: string
+    instagram?: string
+    twitter?: string
+    linkedin?: string
+  }
+  
+  // Custom Images
+  images?: CustomImage[]
+  
+  // Features
+  showPricing?: boolean
+  showTestimonials?: boolean
+  showContactForm?: boolean
+  
+  // Metadata
+  createdAt: string
+  updatedAt: string
+}
+
+export interface WebsiteTemplate {
+  id: string
+  name: string
+  description: string
+  style: DesignStyle
+  thumbnail: string
+}
+
 // ─── Reactiv / Storefront ────────────────────────────────────────────────────
 
 export interface ReactivClipConfig {
