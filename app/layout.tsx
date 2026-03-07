@@ -1,19 +1,14 @@
 import type { Metadata } from 'next'
-import { Syne, DM_Sans } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import { UserProvider } from '@auth0/nextjs-auth0/client'
 import { AppProvider } from '@/context/AppContext'
 import { TranslationProvider } from '@/context/TranslationContext'
 import '@/app/globals.css'
 
-const fontHeading = Syne({
-  subsets: ['latin'],
-  variable: '--font-heading',
-  display: 'swap',
-})
 
-const fontBody = DM_Sans({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-body',
+  variable: '--font-inter',
   display: 'swap',
 })
 
@@ -28,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${fontHeading.variable} ${fontBody.variable}`}>
-      <body className="font-body antialiased">
+    <html lang="en" className={`${inter.variable}`}>
+      <body className="font-sans antialiased text-gray-900 dark:text-gray-100">
         <UserProvider>
           <TranslationProvider>
             <AppProvider>{children}</AppProvider>

@@ -28,13 +28,13 @@ export function HeroSection({ isLoggedIn }: { isLoggedIn: boolean }) {
         </div>
 
         {/* Headline */}
-        <h1 className="animate-fade-in-up opacity-0 text-5xl md:text-7xl lg:text-8xl font-heading font-extrabold tracking-tight text-white mb-8 leading-[1.1]" style={{ animationDelay: '100ms' }}>
+        <h1 className="animate-fade-in-up opacity-0 text-5xl md:text-6xl lg:text-7xl font-sans font-extrabold tracking-tighter text-white mb-8 leading-tight" style={{ animationDelay: '100ms' }}>
           Your AI Co‑Founder<br />
-          <span className="text-gray-400">for Launching a<br/>Business in Canada.</span>
+          <span className="text-gray-400 font-medium">for Launching a<br/>Business in Canada.</span>
         </h1>
 
         {/* Subtext */}
-        <p className="animate-fade-in-up opacity-0 text-lg md:text-xl text-gray-400 max-w-2xl text-center mb-12 leading-relaxed" style={{ animationDelay: '200ms' }}>
+        <p className="animate-fade-in-up opacity-0 text-lg md:text-xl text-gray-300 max-w-2xl text-center mb-12 leading-relaxed" style={{ animationDelay: '200ms' }}>
           Bizy helps you validate your idea, navigate regulations, and launch your company — all in one intelligent platform.
         </p>
 

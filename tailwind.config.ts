@@ -21,8 +21,9 @@ const config: Config = {
         danger: '#e74c3c',
       },
       fontFamily: {
-        heading: ['var(--font-heading)', 'Syne', 'sans-serif'],
-        body: ['var(--font-body)', 'DM Sans', 'sans-serif'],
+        sans: ['var(--font-inter)', 'Inter', 'sans-serif'],
+        heading: ['var(--font-inter)', 'Inter', 'sans-serif'],
+        body: ['var(--font-inter)', 'Inter', 'sans-serif'],
         mono: ['DM Mono', 'monospace'],
       },
       keyframes: {
