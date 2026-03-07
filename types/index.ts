@@ -39,6 +39,7 @@ export type BudgetRange = 'under_5k' | '5k_25k' | '25k_100k' | 'over_100k'
 
 export interface BusinessProfile {
   uid: string
+  email?: string
   businessName: string
   businessType: BusinessType
   businessDescription: string
@@ -132,6 +133,56 @@ export interface License {
 }
 
 // ─── HR ──────────────────────────────────────────────────────────────────────
+
+export interface Employee {
+  id: string
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string
+  role: string
+  department?: string
+  startDate: string
+  salary?: number
+  payFrequency?: 'weekly' | 'biweekly' | 'monthly'
+  sin?: string // Store encrypted/masked
+  address?: {
+    street: string
+    city: string
+    province: CanadianProvince
+    postalCode: string
+  }
+  emergencyContact?: {
+    name: string
+    phone: string
+    relationship: string
+  }
+  status: 'active' | 'onboarding' | 'terminated'
+  onboardingProgress: EmployerDuty[]
+  taxDocuments: TaxDocument[]
+  createdAt: string
+}
+
+export interface EmployerDuty {
+  id: string
+  title: string
+  description: string
+  category: 'legal' | 'payroll' | 'benefits' | 'safety' | 'documentation'
+  dueDate?: string
+  isComplete: boolean
+  completedAt?: string
+  url?: string
+}
+
+export interface TaxDocument {
+  id: string
+  type: 'T4' | 'T4A' | 'T2200' | 'TD1' | 'TD1-PROV' | 'ROE' | 'other'
+  year: number
+  fileName: string
+  fileUrl?: string
+  uploadedAt: string
+  status: 'draft' | 'issued' | 'filed'
+}
 
 export interface OnboardingChecklist {
   employeeName: string

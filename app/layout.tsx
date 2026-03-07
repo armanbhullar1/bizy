@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Syne, DM_Sans } from 'next/font/google'
 import { UserProvider } from '@auth0/nextjs-auth0/client'
 import { AppProvider } from '@/context/AppContext'
+import { TranslationProvider } from '@/context/TranslationContext'
 import '@/app/globals.css'
 
 const fontHeading = Syne({
@@ -30,7 +31,9 @@ export default function RootLayout({
     <html lang="en" className={`${fontHeading.variable} ${fontBody.variable}`}>
       <body className="font-body antialiased">
         <UserProvider>
-          <AppProvider>{children}</AppProvider>
+          <TranslationProvider>
+            <AppProvider>{children}</AppProvider>
+          </TranslationProvider>
         </UserProvider>
       </body>
     </html>

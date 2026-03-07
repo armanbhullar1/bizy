@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useUser } from '@auth0/nextjs-auth0/client'
 import { Menu } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { LanguageSelector } from '@/components/translation'
 
 interface TopNavProps {
   onMenuClick?: () => void
@@ -31,6 +32,7 @@ export function TopNav({ onMenuClick, className }: TopNavProps) {
       </button>
 
       <div className="flex flex-1 items-center justify-end gap-4">
+        <LanguageSelector variant="compact" />
         {isLoading ? (
           <div className="h-8 w-8 animate-pulse rounded-full bg-white/20" />
         ) : user ? (

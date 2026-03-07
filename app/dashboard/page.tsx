@@ -1,9 +1,24 @@
 'use client'
 
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { Zap, Map, Shield, Store } from 'lucide-react'
+import { Zap, Map, Shield, Store, User } from 'lucide-react'
+import { useUser } from '@auth0/nextjs-auth0/client'
+import { useBusinessProfile } from '@/hooks/useBusinessProfile'
 
 export default function DashboardPage() {
+  const router = useRouter()
+  const { user } = useUser()
+  const { businessProfile, loading, needsOnboarding } = useBusinessProfile()
+
+  // Redirect to onboarding if no profile
+  useEffect(() => {
+    if (!loading && needsOnboarding) {
+      router.push('/onboarding')
+    }
+  }, [loading, needsOnboarding, router])
+
   const cards = [
     {
       title: 'Viability',
@@ -35,11 +50,71 @@ export default function DashboardPage() {
     },
   ]
 
+  if (loading) {
+    return (
+      <div className="p-6 flex items-center justify-center min-h-[50vh]">
+        <div className="animate-pulse text-gray-500">Loading...</div>
+      </div>
+    )
+  }
+
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-heading font-bold text-brand-primary mb-6">
-        Dashboard
-      </h1>
+      {/* Welcome Header */}
+      <div className="mb-8">
+        <div className="flex items-center gap-4 mb-2">
+          {user?.picture ? (
+            <img
+              src={user.picture}
+              alt={user.name || 'User'}
+              className="w-12 h-12 rounded-full border-2 border-brand-accent"
+            />
+          ) : (
+            <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center">
+              <User className="w-6 h-6 text-gray-400" />
+            </div>
+          )}
+          <div>
+            <h1 className="text-3xl font-heading font-bold text-brand-primary">
+              Welcome back{businessProfile?.businessName ? `, ${businessProfile.businessName}` : ''}
+            </h1>
+            {user?.email && (
+              <p className="text-gray-500 text-sm">{user.email}</p>
+            )}
+          </div>
+        </div>
+        
+        {/* Business Profile Summary */}
+        {businessProfile && (
+          <div className="mt-4 p-4 rounded-lg bg-gray-50 border border-gray-200">
+            <div className="flex flex-wrap gap-4 text-sm">
+              <div>
+                <span className="text-gray-500">Business Type:</span>{' '}
+                <span className="font-medium text-brand-primary capitalize">
+                  {businessProfile.businessType}
+                </span>
+              </div>
+              <div>
+                <span className="text-gray-500">Location:</span>{' '}
+                <span className="font-medium text-brand-primary">
+                  {businessProfile.city}, {businessProfile.province}
+                </span>
+              </div>
+              <div>
+                <span className="text-gray-500">Stage:</span>{' '}
+                <span className="font-medium text-brand-primary capitalize">
+                  {businessProfile.stage}
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Feature Cards */}
+      <h2 className="text-xl font-heading font-semibold text-brand-primary mb-4">
+        What would you like to do?
+      </h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {cards.map(({ title, description, href, icon: Icon, color }) => (
           <Link
