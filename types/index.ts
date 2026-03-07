@@ -88,10 +88,15 @@ export interface ViabilityResult {
 export type RoadmapCategory =
   | 'legal'
   | 'financial'
+  | 'product'
   | 'licensing'
   | 'hr'
   | 'operations'
   | 'marketing'
+
+export type RoadmapStepPriority = 'high' | 'medium' | 'low'
+
+export type RoadmapStepDifficulty = 'easy' | 'medium' | 'hard'
 
 export interface RoadmapStep {
   id: string
@@ -105,6 +110,10 @@ export interface RoadmapStep {
   isComplete: boolean
   isRequired: boolean
   dependsOn?: string[]
+  dependencies?: string[]
+  priority?: RoadmapStepPriority
+  recommendedTools?: string[]
+  difficulty?: RoadmapStepDifficulty
 }
 
 // ─── Compliance ──────────────────────────────────────────────────────────────

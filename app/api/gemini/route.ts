@@ -38,12 +38,18 @@ export async function POST(req: NextRequest) {
     }
 
     const genModel = getGenerativeModel(model || 'gemini-2.5-flash')
+
+    // Gemini 2.5 can reject systemInstruction as a string (400). Prepend to user message instead.
+    const userContent =
+      systemPrompt && systemPrompt.trim()
+        ? `${systemPrompt.trim()}\n\n${lastMessage.content}`
+        : lastMessage.content
+
     const chat = genModel.startChat({
       history,
-      ...(systemPrompt && { systemInstruction: systemPrompt }),
     })
 
-    const result = await chat.sendMessage(lastMessage.content)
+    const result = await chat.sendMessage(userContent)
     const text = result.response.text()
 
     return NextResponse.json({ response: text })

@@ -4,10 +4,12 @@
  */
 
 import type { BusinessProfile } from '@/types'
+import type { RoadmapStep } from '@/types'
 
 const STORAGE_KEYS = {
   BUSINESS_PROFILE: 'bizy_business_profile',
   USER_PREFERENCES: 'bizy_user_preferences',
+  ROADMAP: 'bizy_roadmap',
 } as const
 
 // ─── Business Profile ────────────────────────────────────────────────────────
@@ -38,4 +40,23 @@ export function clearBusinessProfile(): void {
 export function isOnboardingComplete(): boolean {
   const profile = loadBusinessProfile()
   return profile !== null && !!profile.businessName && !!profile.businessType
+}
+
+// ─── Roadmap cache ──────────────────────────────────────────────────────────
+
+export function saveRoadmap(steps: RoadmapStep[]): void {
+  if (typeof window === 'undefined') return
+  localStorage.setItem(STORAGE_KEYS.ROADMAP, JSON.stringify({ steps }))
+}
+
+export function loadRoadmap(): { steps: RoadmapStep[] } | null {
+  if (typeof window === 'undefined') return null
+  const data = localStorage.getItem(STORAGE_KEYS.ROADMAP)
+  if (!data) return null
+  try {
+    const parsed = JSON.parse(data) as { steps: RoadmapStep[] }
+    return Array.isArray(parsed?.steps) ? parsed : null
+  } catch {
+    return null
+  }
 }
