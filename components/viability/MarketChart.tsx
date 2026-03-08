@@ -48,7 +48,7 @@ export function MarketChart({ data }: MarketChartProps) {
           />
           <Bar
             dataKey="value"
-            fill="#e94560"
+            fill="#FF0000"
             radius={[4, 4, 0, 0]}
             name="Competition density"
           />

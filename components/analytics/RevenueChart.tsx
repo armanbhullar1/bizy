@@ -49,9 +49,9 @@ export function RevenueChart({ data }: RevenueChartProps) {
           <Line
             type="monotone"
             dataKey="value"
-            stroke="#e94560"
+            stroke="#FF0000"
             strokeWidth={2}
-            dot={{ fill: '#e94560' }}
+            dot={{ fill: '#FF0000' }}
             name="Revenue"
           />
         </LineChart>

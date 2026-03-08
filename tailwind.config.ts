@@ -12,7 +12,7 @@ const config: Config = {
       colors: {
         brand: {
           primary: '#1a1a2e',
-          accent: '#e94560',
+          accent: '#FF0000',
           secondary: '#16213e',
           highlight: '#f5a623',
         },

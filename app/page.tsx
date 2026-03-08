@@ -3,7 +3,7 @@
 import { LandingNav } from '@/components/layout/LandingNav'
 
 import { HeroSection } from '@/components/landing/HeroSection'
-import { SocialProof } from '@/components/landing/SocialProof'
+
 import { StoryScroll } from '@/components/landing/StoryScroll'
 import { FeatureOverview } from '@/components/landing/FeatureOverview'
 import { FeatureDeepDive } from '@/components/landing/FeatureDeepDive'
@@ -24,7 +24,7 @@ export default function LandingPage() {
 
       <main>
         <HeroSection isLoggedIn={isLoggedIn} />
-        <SocialProof />
+
         <StoryScroll />
         <FeatureOverview />
         <FeatureDeepDive />
