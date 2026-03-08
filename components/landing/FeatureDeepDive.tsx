@@ -39,8 +39,8 @@ export function FeatureDeepDive() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="space-y-32">
           {features.map((feature, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className={`flex flex-col md:flex-row items-center gap-12 lg:gap-24 ${feature.reversed ? 'md:flex-row-reverse' : ''}`}
             >
               {/* Text Side */}
@@ -71,7 +71,7 @@ export function FeatureDeepDive() {
               <div className="flex-1 w-full">
                 <div className="aspect-square md:aspect-[4/3] rounded-2xl bg-gradient-to-tr from-brand-primary to-black border border-white/10 p-2 shadow-2xl relative overflow-hidden group">
                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--brand-accent)_0%,_transparent_60%)] opacity-10 group-hover:opacity-20 transition-opacity" />
-                  
+
                   {/* Mock browser window */}
                   <div className="w-full h-full bg-brand-primary rounded-xl border border-white/5 overflow-hidden flex flex-col">
                     <div className="h-10 bg-white/5 border-b border-white/5 flex items-center px-4 gap-2">
@@ -79,9 +79,13 @@ export function FeatureDeepDive() {
                       <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
                       <div className="w-3 h-3 rounded-full bg-green-500/50" />
                     </div>
-                    <div className="flex-1 p-6 flex items-center justify-center font-mono text-white/20 text-2xl">
-                       {/* This would be an actual next/image of the UI in production */}
-                       [{t('featureSpotlight.uiPreview')}: {t(feature.imageKey)}]
+                    <div className="flex-1 relative overflow-hidden bg-black/50">
+                      <Image
+                        src={`/assets/${feature.imageKey.includes('viability') ? 'viability' : 'launch-roadmap'}.png`}
+                        alt=""
+                        fill
+                        className="object-cover object-left-top"
+                      />
                     </div>
                   </div>
                 </div>

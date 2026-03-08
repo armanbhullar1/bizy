@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Rocket } from 'lucide-react'
 
 export function ModernFooter() {
@@ -29,8 +30,8 @@ export function ModernFooter() {
           
           <div className="flex-1 max-w-sm">
             <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center">
-                <Rocket className="w-4 h-4 text-white" />
+              <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center overflow-hidden relative">
+                <Image src="/bizy-logo.png" alt="Bizy Logo" fill className="object-cover" />
               </div>
               <span className="text-2xl font-heading font-medium tracking-tight text-white">Bizy</span>
             </Link>

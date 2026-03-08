@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { LanguageSelector } from '@/components/translation'
 import { useTranslation } from '@/context/TranslationContext'
 
@@ -33,8 +34,8 @@ export function LandingNav({ isLoggedIn }: LandingNavProps) {
         {/* Center: Logo */}
         <div className="flex items-center justify-start lg:justify-center">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-full bg-white text-brand-primary flex items-center justify-center font-bold text-lg leading-none">
-              B
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-white/20 relative">
+               <Image src="/bizy-logo.png" alt="Bizy Logo" fill className="object-cover" />
             </div>
             <span className="text-2xl font-heading font-bold tracking-tight text-white group-hover:text-white/90 transition-colors">
               Bizy
