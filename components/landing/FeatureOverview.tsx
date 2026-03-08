@@ -22,20 +22,20 @@ export function FeatureOverview() {
     {
       titleKey: 'features.roadmap.title',
       descriptionKey: 'features.roadmap.description',
-      icon: <Compass className="w-8 h-8 text-blue-500" />,
-      color: "bg-blue-500/10 border-blue-500/20"
+      icon: <Compass className="w-8 h-8 text-brand-accent" />,
+      color: "bg-brand-accent/10 border-brand-accent/20"
     },
     {
       titleKey: 'features.compliance.title',
       descriptionKey: 'features.compliance.description',
-      icon: <ShieldCheck className="w-8 h-8 text-success" />,
-      color: "bg-success/10 border-success/20"
+      icon: <ShieldCheck className="w-8 h-8 text-brand-accent" />,
+      color: "bg-brand-accent/10 border-brand-accent/20"
     },
     {
       titleKey: 'features.storefront.title',
       descriptionKey: 'features.storefront.description',
-      icon: <Store className="w-8 h-8 text-brand-highlight" />,
-      color: "bg-brand-highlight/10 border-brand-highlight/20"
+      icon: <Store className="w-8 h-8 text-brand-accent" />,
+      color: "bg-brand-accent/10 border-brand-accent/20"
     }
   ]
 
@@ -47,7 +47,7 @@ export function FeatureOverview() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6">
-            {t('features.headline')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-purple-500">{t('features.headlineHighlight')}</span>
+            {t('features.headline')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-brand-accent">{t('features.headlineHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             {t('features.subheadline')}

@@ -12,15 +12,15 @@ export function HeroSection({ isLoggedIn }: { isLoggedIn: boolean }) {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-primary">
       {/* Background Image & Gradient Overlay */}
       <div className="absolute inset-0 z-0">
-        <Image 
-          src="/hero-bg.png" 
-          alt="Banff Mountains cinematic background" 
+        <Image
+          src="/assets/toronto-sunrise.jpg"
+          alt="Toronto Sunrise skyline"
           fill
           priority
-          className="object-cover opacity-60"
+          className="object-cover opacity-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-primary via-transparent to-brand-primary opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-primary via-transparent to-brand-primary opacity-60" />
       </div>
 
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 pt-20 pb-32 flex flex-col items-center text-center">

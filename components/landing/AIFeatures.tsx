@@ -25,7 +25,7 @@ export function AIFeatures() {
             
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6 leading-tight">
               {t('aiFeatures.headline1')} <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-brand-accent">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-brand-accent">
                 {t('aiFeatures.headline2')}
               </span>
             </h2>
